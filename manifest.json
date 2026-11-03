@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Codewars Sync",
+  "description": "Envia automaticamente suas soluções do Codewars para um repositório no GitHub.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "111",
+  "action": {
+    "default_title": "Codewars Sync",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.codewars.com/*",
+    "https://api.github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.codewars.com/*"],
+      "js": ["src/page-reader.js"],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.codewars.com/*"],
+      "js": ["src/bridge.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
