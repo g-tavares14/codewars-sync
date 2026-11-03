@@ -65,3 +65,7 @@ O editor do Codewars não formata o código. No repositório de soluções, um w
 | `token inválido ou expirado` | Gere um token novo e salve no popup. |
 
 Logs detalhados: `chrome://extensions` → Codewars Sync → **service worker**. Depois de editar o código, clique em recarregar (↻) na extensão e dê F5 na aba do Codewars.
+
+## Licença
+
+[MIT](LICENSE)
