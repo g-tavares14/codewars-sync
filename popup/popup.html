@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <h1>Codewars Sync</h1>
+
+  <form id="config">
+    <label>
+      Token do GitHub
+      <input id="token" type="password" placeholder="github_pat_..." autocomplete="off" required />
+    </label>
+    <p class="hint">
+      Fine-grained: permissão <b>Contents: Read and write</b> só no repositório escolhido.
+      Clássico: escopo <code>repo</code>.
+      <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">Criar token</a>
+    </p>
+
+    <label>
+      Repositório (dono/nome)
+      <input id="repo" type="text" placeholder="seu-usuario/codewars" required />
+    </label>
+    <p class="hint">Se o repo estiver vazio, a extensão cria o primeiro commit sozinha.</p>
+
+    <label>
+      Pasta base (opcional)
+      <input id="baseDir" type="text" placeholder="ex: solutions" />
+    </label>
+
+    <button type="submit">Salvar e testar conexão</button>
+    <p id="status" role="status"></p>
+  </form>
+
+  <section>
+    <h2>Últimas sincronizações</h2>
+    <ul id="history"><li class="empty">Nada ainda.</li></ul>
+  </section>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
